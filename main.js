@@ -44,26 +44,19 @@ submitToken.addEventListener("click", async () => {
 })
 
 callButton.addEventListener("click", () => {
-    try {// start a call
+    try {
         const userToCall = calleeInput.value;
-        call = callAgent.startCall(
-            [{ id: userToCall }],
-            {},
-            console.log("Call State"),
-            console.log(call.state),
-            console.log("Call Started"),
-            status.innerHTML = "Call Started",
-            console.log("Call State"),
-            console.log(call.state),
-        );
-        // toggle button states
-
-        console.log("Call State");
-        console.log(call.state);
-        hangUpButton.disabled = false;
-        callButton.disabled = true;
-    }
-    catch (error) {
+        if (userToCall) {
+            call = callAgent.startCall([{ id: userToCall }]);
+            console.log("Call Started");
+            status.innerHTML = "Call Started";
+            hangUpButton.disabled = false;
+            callButton.disabled = true;
+        } else {
+            console.log("User to call is not specified.");
+            status.innerHTML = "User to call is not specified.";
+        }
+    } catch (error) {
         console.log("Start call failed");
         console.error(error);
         status.innerHTML = "Start call failed";
