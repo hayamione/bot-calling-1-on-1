@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif !important;
+    }
+
+    .mainDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .middleMainDiv {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      padding: 20px;
+      font-family: sans-serif;
+      box-shadow: 0 5px 10px 3px #a9a4a4;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    button,
+    button:focus,
+    button:focus-within {
+      transition: all ease-in 0.5s;
+      height: 40px;
+      padding: 5px 10px;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 4px;
+      font-weight: 600;
+      overflow: hidden;
+      color: #fff;
+      border: 1px solid transparent;
+    }
+
+    button:hover {
+      box-shadow: 2px 2px 8px 2px #a9a4a4;
+    }
+
+    button:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      box-shadow: 2px 2px 8px 2px #a9a4a4 !important;
+    }
+
+    input[type="text"] {
+      border-radius: 4px;
+      font-weight: 600;
+      border: 2px solid #3d3d3d;
+      padding: 5px;
+      height: 40px;
+      margin-bottom: 1em;
+
+      width: 100%;
+    }
+
+    .tokenSection {
+      display: flex;
+      gap: 10px;
+      position: relative;
+    }
+
+    .tokenSection input {
+      padding-right: 90px;
+      height: 50px;
+    }
+
+    .tokenSection button,
+    .tokenSection button:focus,
+    .tokenSection button:focus-within {
+      background: transparent;
+      width: 80px;
+      background-color: #07a6db;
+      border-color: #07a6db;
+      position: absolute;
+      right: 0;
+      top: 5px;
+      right: 5px;
+      border-radius: 0 4px 4px 0;
+      border-radius: 4px;
+    }
+
+    button.danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    button.success {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+
+    #status {
+      color: #17a2b8;
+    }
+
+    .btnSection {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 10px;
+      width: 100%;
+    }
+    .statusSection {
+        font-weight: 600;
+        text-align: left;
+    }

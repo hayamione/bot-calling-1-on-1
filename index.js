@@ -6,7 +6,7 @@ let incomingCall;
 let callAgent;
 let deviceManager;
 let tokenCredential;
-const userToken = document.getElementById("token-input");
+const userToken = document.getElementById("token-input"); 
 const calleeInput = document.getElementById("callee-id-input");
 const submitToken = document.getElementById("token-submit");
 const callButton = document.getElementById("call-button");
@@ -14,7 +14,9 @@ const hangUpButton = document.getElementById("hang-up-button");
 const acceptCallButton = document.getElementById('accept-call-button');
 const status = document.getElementById("status");
 
+
 submitToken.addEventListener("click", async () => {
+    console.log("Submit Button Clicked");
     const callClient = new CallClient();
     const userTokenCredential = userToken.value;
     try {
@@ -36,7 +38,7 @@ submitToken.addEventListener("click", async () => {
             }
         });
         console.log("Token Connected");
-        status.innerHTML = "Token Valid";
+        status.innerHTML = "Token Valid dddd";
     } catch (error) {
         window.alert("Please submit a valid token!");
         status.innerHTML = "Token Invalid";
@@ -82,7 +84,6 @@ hangUpButton.addEventListener("click", () => {
         status.innerHTML = "Call is not in a valid state for hangup.";
     }
 });
-
 
 acceptCallButton.onclick = async () => {
     try {
