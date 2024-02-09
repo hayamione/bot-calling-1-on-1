@@ -13,7 +13,7 @@ const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
 const acceptCallButton = document.getElementById('accept-call-button');
 const status = document.getElementById("status");
-
+const callStatus = document.getElementById("statusCall");
 
 submitToken.addEventListener("click", async () => {
     console.log("Submit Button Clicked");
@@ -38,7 +38,7 @@ submitToken.addEventListener("click", async () => {
             }
         });
         console.log("Token Connected");
-        status.innerHTML = "Token Valid dddd";
+        status.innerHTML = "Token Valid";
     } catch (error) {
         window.alert("Please submit a valid token!");
         status.innerHTML = "Token Invalid";
@@ -48,12 +48,15 @@ submitToken.addEventListener("click", async () => {
 callButton.addEventListener("click", () => {
     try {
         const userToCall = calleeInput.value;
+        console.log("This is call status " + call.state);
         if (userToCall) {
             call = callAgent.startCall([{ id: userToCall }]);
             console.log("Call Started");
             status.innerHTML = "Call Started";
             hangUpButton.disabled = false;
             callButton.disabled = true;
+            callStatus.innerHTML = call.state;
+            console.log("This is call status " + call.state);
         } else {
             console.log("User to call is not specified.");
             status.innerHTML = "User to call is not specified.";
@@ -66,6 +69,7 @@ callButton.addEventListener("click", () => {
 });
 
 hangUpButton.addEventListener("click", () => {
+    console.log("This is call status " + call.state);
     // Check if the call object exists and is in a valid state for hangup
     if (call && call.state === 'Connected') {
         // end the current call
@@ -80,6 +84,7 @@ hangUpButton.addEventListener("click", () => {
         submitToken.disabled = false;
         acceptCallButton.disabled = true;
     } else {
+        console.log("This is call status " + call.state);
         console.log("Call is not in a valid state for hangup.");
         status.innerHTML = "Call is not in a valid state for hangup.";
     }

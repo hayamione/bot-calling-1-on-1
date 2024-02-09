@@ -13,6 +13,7 @@ const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
 const acceptCallButton = document.getElementById('accept-call-button');
 const status = document.getElementById("status");
+const callStatus = document.getElementById("callStatus");
 
 submitToken.addEventListener("click", async () => {
     console.log("Submit Button Clicked");
@@ -53,6 +54,7 @@ callButton.addEventListener("click", () => {
             status.innerHTML = "Call Started";
             hangUpButton.disabled = false;
             callButton.disabled = true;
+            callStatus.innerHTML = call.state;
         } else {
             console.log("User to call is not specified.");
             status.innerHTML = "User to call is not specified.";
